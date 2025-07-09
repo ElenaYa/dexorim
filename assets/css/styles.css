@@ -32,8 +32,7 @@
 
 	========== ========== ==========
 */
-@import url("../../../css2");
-@import url("../../../css2-1");
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap");
 :root,
 [data-bs-theme=light] {
   --bs-primary-100: #EAFAF4;
@@ -13331,9 +13330,9 @@ footer .footer_widget ul {
   margin-top: -10px;
   padding: 0;
 }
-footer .btn-link, footer a, footer p a, footer p, footer strong, footer b {
+/* footer .btn-link, footer a, footer p a, footer p, footer strong, footer b {
   color: rgba(255, 255, 255, 0.7);
-}
+} */
 footer .widget_categories ul li,
 footer .widget_archive ul li,
 footer .widget_meta ul li,
