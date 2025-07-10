@@ -1,0 +1,118 @@
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(135deg, #2BBA82 0%, #1D7D57 100%);
+    color: white;
+    padding: 20px;
+    z-index: 999999;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+    transform: translateY(100%);
+    transition: transform 0.4s ease-in-out;
+    border-top: 3px solid #FFE010;
+}
+
+.cookie-banner.show {
+    transform: translateY(0);
+}
+
+.cookie-banner .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.cookie-content {
+    flex: 1;
+    min-width: 300px;
+}
+
+.cookie-content h6 {
+    color: #FFE010;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.cookie-content p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+    opacity: 0.9;
+}
+
+.cookie-content a {
+    color: #FFE010;
+    text-decoration: underline;
+}
+
+.cookie-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.cookie-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 100px;
+}
+
+.cookie-btn.accept {
+    background: #FFE010;
+    color: #1D7D57;
+}
+
+.cookie-btn.accept:hover {
+    background: #F4D501;
+    transform: translateY(-2px);
+}
+
+.cookie-btn.decline {
+    background: transparent;
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.cookie-btn.decline:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: white;
+}
+
+.cookie-btn.settings {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.cookie-btn.settings:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+@media (max-width: 768px) {
+    .cookie-banner .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .cookie-content {
+        min-width: auto;
+    }
+    
+    .cookie-actions {
+        justify-content: center;
+    }
+    
+    .cookie-btn {
+        flex: 1;
+        min-width: 80px;
+    }
+} 

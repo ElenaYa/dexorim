@@ -28,8 +28,19 @@ Theme Version:	1.0.0
 			}
 		}
 		
+		var getGclidFromUrl = function() {
+			var urlParams = new URLSearchParams(window.location.search);
+			return urlParams.get('gclid') || '';
+		};
+
 		var contactForm = function() {
 			if (!checkSelectorExistence('.ajax-form')) { return; }
+
+			// Устанавливаем gclid при загрузке страницы
+			var gclid = getGclidFromUrl();
+			if (gclid) {
+				jQuery('#gclid').val(gclid);
+			}
 
 			jQuery('.ajax-form').on('submit', function(e) {
 				e.preventDefault();
@@ -38,6 +49,7 @@ Theme Version:	1.0.0
 				var firstName = $form.find('#contactFirstName').val().trim();
 				var email = $form.find('#contactEmail').val().trim();
 				var message = $form.find('#contactMessage').val().trim();
+				var gclid = $form.find('#gclid').val() || getGclidFromUrl();
 				
 				// Валидация
 				if(!firstName || !email || !message) {
@@ -51,6 +63,15 @@ Theme Version:	1.0.0
 					$form.find(".ajax-message").html(response).show('slow');
 					return;
 				}
+				
+				// Логирование данных формы с gclid
+				var formData = {
+					firstName: firstName,
+					email: email,
+					message: message,
+					gclid: gclid
+				};
+				
 				
 				// Успешная валидация - показываем поп-ап
 				var successMessage = '<div class="alert alert-success">' +
