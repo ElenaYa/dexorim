@@ -9070,8 +9070,11 @@ textarea.form-control-lg {
 }
 
 .bg-light {
-  --bs-bg-opacity: 1;
-  background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important;
+ 
+  background-image: url('../images/background.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .bg-dark {

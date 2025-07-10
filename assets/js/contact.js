@@ -30,10 +30,10 @@ Theme Version:	1.0.0
 		
 		var contactForm = function() {
 			if (!checkSelectorExistence('.ajax-form')) { return; }
-			
+
 			jQuery('.ajax-form').on('submit', function(e) {
 				e.preventDefault();
-				
+
 				var $form = jQuery(this);
 				var firstName = $form.find('#contactFirstName').val().trim();
 				var email = $form.find('#contactEmail').val().trim();
@@ -42,7 +42,7 @@ Theme Version:	1.0.0
 				// Валидация
 				if(!firstName || !email || !message) {
 					var response = '<div class="alert alert-danger">Будь ласка, заповніть всі обов\'язкові поля</div>';
-					$form.find(".ajax-message").html(response).show('slow');
+				$form.find(".ajax-message").html(response).show('slow');
 					return;
 				}
 				
@@ -61,7 +61,7 @@ Theme Version:	1.0.0
 				$form.find(".ajax-message").html(successMessage).show('slow');
 				
 				// Очищаем форму
-				$form[0].reset();
+						$form[0].reset();
 				
 				// Скрываем сообщение через 5 секунд
 				setTimeout(function() {
@@ -72,23 +72,23 @@ Theme Version:	1.0.0
 		
 		var subscriptionForm = function() {
 			if (!checkSelectorExistence('.subscribe-form1')) { return; }
-			
+
 			jQuery('.subscribe-form1').on('submit', function(e) {
 				e.preventDefault();
-				
+
 				var $form = jQuery(this);
 				var email = $form.find('input[name="email"]').val().trim();
-				
+
 				// Валидация email
 				if(!email) {
 					var response = '<div class="alert alert-danger">Будь ласка, введіть email адресу</div>';
 					$form.find(".ajax-message").html(response).show('slow');
 					return;
 				}
-				
+
 				if(!validateEmail(email)) {
 					var response = '<div class="alert alert-danger">Будь ласка, введіть коректну email адресу</div>';
-					$form.find(".ajax-message").html(response).show('slow');
+				$form.find(".ajax-message").html(response).show('slow');
 					return;
 				}
 				
@@ -106,7 +106,7 @@ Theme Version:	1.0.0
 					$form.find(".ajax-message").html(successMessage).show('slow');
 					
 					// Очищаем форму
-					$form[0].reset();
+						$form[0].reset();
 					
 					// Скрываем сообщение через 5 секунд
 					setTimeout(function() {
