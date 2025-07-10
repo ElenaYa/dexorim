@@ -25775,7 +25775,7 @@ figure figcaption {
 }
 .course-features-detail .course-video-bx::after {
   content: "";
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 64.14%, rgba(0, 0, 0, 0.5) 100%), url(image.png);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 64.14%, rgba(0, 0, 0, 0.5) 100%);
   position: absolute;
   left: 0;
   top: 0;
