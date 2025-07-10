@@ -1,12 +1,4 @@
-/*
-***
-***
-Name: 			slider.js
-Written by: 	LayoutDrop 
-Theme Version:	1.0.0
-***
-***
-*/
+
 
 'use strict';
 
@@ -162,7 +154,6 @@ document.addEventListener("DOMContentLoaded", function() {
 	
 	
 	
-	// Initialize all Swipers
 	feedbackSwiper1();
 	feedbackSwiper2();
 	brandLogo();

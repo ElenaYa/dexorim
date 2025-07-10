@@ -1,12 +1,3 @@
-/*
-***
-***
-Name: 			contact.js
-Written by: 	LayoutDrop
-Theme Version:	1.0.0
-***
-***
-*/
 
 (function($) {
 	
@@ -18,7 +9,6 @@ Theme Version:	1.0.0
 			if(jQuery(selectorName).length > 0){return true;}else{return false;}
 		};
 		
-		/* Email Form Input */
 		var validateEmail = function(email)	{
 			var emailReg = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
 			if(emailReg.test(email)) {
@@ -36,7 +26,6 @@ Theme Version:	1.0.0
 		var contactForm = function() {
 			if (!checkSelectorExistence('.ajax-form')) { return; }
 
-			// Устанавливаем gclid при загрузке страницы
 			var gclid = getGclidFromUrl();
 			if (gclid) {
 				jQuery('#gclid').val(gclid);
@@ -51,7 +40,6 @@ Theme Version:	1.0.0
 				var message = $form.find('#contactMessage').val().trim();
 				var gclid = $form.find('#gclid').val() || getGclidFromUrl();
 				
-				// Валидация
 				if(!firstName || !email || !message) {
 					var response = '<div class="alert alert-danger">Будь ласка, заповніть всі обов\'язкові поля</div>';
 				$form.find(".ajax-message").html(response).show('slow');
@@ -64,7 +52,6 @@ Theme Version:	1.0.0
 					return;
 				}
 				
-				// Логирование данных формы с gclid
 				var formData = {
 					firstName: firstName,
 					email: email,
@@ -73,7 +60,6 @@ Theme Version:	1.0.0
 				};
 				
 				
-				// Успешная валидация - показываем поп-ап
 				var successMessage = '<div class="alert alert-success">' +
 					'<h4>Дякуємо за звернення!</h4>' +
 					'<p>Ми отримали ваше повідомлення та зв\'яжемося з вами найближчим часом.</p>' +
@@ -81,10 +67,8 @@ Theme Version:	1.0.0
 				
 				$form.find(".ajax-message").html(successMessage).show('slow');
 				
-				// Очищаем форму
 						$form[0].reset();
 				
-				// Скрываем сообщение через 5 секунд
 				setTimeout(function() {
 					$form.find(".ajax-message").fadeOut('slow');
 				}, 5000);
@@ -100,7 +84,6 @@ Theme Version:	1.0.0
 				var $form = jQuery(this);
 				var email = $form.find('input[name="email"]').val().trim();
 
-				// Валидация email
 				if(!email) {
 					var response = '<div class="alert alert-danger">Будь ласка, введіть email адресу</div>';
 					$form.find(".ajax-message").html(response).show('slow');
@@ -113,11 +96,9 @@ Theme Version:	1.0.0
 					return;
 				}
 				
-				// Показываем сообщение о обработке
 				var processingMessage = '<div class="alert alert-warning">Обробка запиту...</div>';
 				$form.find(".ajax-message").html(processingMessage).show('slow');
 				
-				// Имитируем задержку обработки
 				setTimeout(function() {
 					var successMessage = '<div class="alert alert-success">' +
 						'<h4>Успішна підписка!</h4>' +
@@ -126,10 +107,8 @@ Theme Version:	1.0.0
 					
 					$form.find(".ajax-message").html(successMessage).show('slow');
 					
-					// Очищаем форму
 						$form[0].reset();
 					
-					// Скрываем сообщение через 5 секунд
 					setTimeout(function() {
 						$form.find(".ajax-message").fadeOut('slow');
 					}, 5000);
@@ -137,7 +116,6 @@ Theme Version:	1.0.0
 			});
 		}
 		
-		/* Functions Calling */
 		return {
 			afterLoadThePage:function(){
 				contactForm();
@@ -147,7 +125,6 @@ Theme Version:	1.0.0
 		
 	}(jQuery);
 	
-	/* jQuery Window Load */
 	jQuery(window).on("load", function (e) {
 		FormFunction.afterLoadThePage();
 	});

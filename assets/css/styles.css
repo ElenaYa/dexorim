@@ -1,37 +1,5 @@
 ﻿@charset "UTF-8";
-/*
-	Author::   LayoutDrop
-	Version::  1.0.0
-	Name::  EduThink | Online Courses & Education Bootstrap HTML Template
 
-	========== Table Of Content ==========
-
-	1. General Styles
-		1.1. Reset
-		1.2. Typography
-
-	2. Layout
-		2.1. Containers
-		2.2. Grids
-
-	3. Components
-		3.1. Header
-		3.2. Footer
-		3.3. Buttons
-		3.4. Forms
-
-	4. Utilities
-		4.1. Spacing
-		4.2. Visibility
-		4.3. Colors
-
-	5. Custom Components
-		5.1. Cards
-		5.2. Modals
-		5.3. Alerts
-
-	========== ========== ==========
-*/
 @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap");
 :root,
 [data-bs-theme=light] {
@@ -91,11 +59,7 @@
   --bs-blue-900: #001C61;
 }
 
-/*!
- * Bootstrap  v5.3.3 (https://getbootstrap.com/)
- * Copyright 2011-2024 The Bootstrap Authors
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
- */
+
 :root,
 [data-bs-theme=light] {
   --bs-blue: #1A49BA;
@@ -655,14 +619,6 @@ legend + * {
   outline-offset: -2px;
 }
 
-/* rtl:raw:
-[type="tel"],
-[type="url"],
-[type="email"],
-[type="number"] {
-  direction: ltr;
-}
-*/
 ::-webkit-search-decoration {
   -webkit-appearance: none;
 }
@@ -5991,7 +5947,6 @@ textarea.form-control-lg {
   border-top-color: var(--bs-tooltip-bg);
 }
 
-/* rtl:begin:ignore */
 .bs-tooltip-end .tooltip-arrow, .bs-tooltip-auto[data-popper-placement^=right] .tooltip-arrow {
   left: calc(-1 * var(--bs-tooltip-arrow-height));
   width: var(--bs-tooltip-arrow-height);
@@ -6003,7 +5958,6 @@ textarea.form-control-lg {
   border-right-color: var(--bs-tooltip-bg);
 }
 
-/* rtl:end:ignore */
 .bs-tooltip-bottom .tooltip-arrow, .bs-tooltip-auto[data-popper-placement^=bottom] .tooltip-arrow {
   top: calc(-1 * var(--bs-tooltip-arrow-height));
 }
@@ -6013,7 +5967,6 @@ textarea.form-control-lg {
   border-bottom-color: var(--bs-tooltip-bg);
 }
 
-/* rtl:begin:ignore */
 .bs-tooltip-start .tooltip-arrow, .bs-tooltip-auto[data-popper-placement^=left] .tooltip-arrow {
   right: calc(-1 * var(--bs-tooltip-arrow-height));
   width: var(--bs-tooltip-arrow-height);
@@ -6025,7 +5978,6 @@ textarea.form-control-lg {
   border-left-color: var(--bs-tooltip-bg);
 }
 
-/* rtl:end:ignore */
 .tooltip-inner {
   max-width: var(--bs-tooltip-max-width);
   padding: var(--bs-tooltip-padding-y) var(--bs-tooltip-padding-x);
@@ -6109,7 +6061,6 @@ textarea.form-control-lg {
   border-top-color: var(--bs-popover-bg);
 }
 
-/* rtl:begin:ignore */
 .bs-popover-end > .popover-arrow, .bs-popover-auto[data-popper-placement^=right] > .popover-arrow {
   left: calc(-1 * (var(--bs-popover-arrow-height)) - var(--bs-popover-border-width));
   width: var(--bs-popover-arrow-height);
@@ -6127,7 +6078,6 @@ textarea.form-control-lg {
   border-right-color: var(--bs-popover-bg);
 }
 
-/* rtl:end:ignore */
 .bs-popover-bottom > .popover-arrow, .bs-popover-auto[data-popper-placement^=bottom] > .popover-arrow {
   top: calc(-1 * (var(--bs-popover-arrow-height)) - var(--bs-popover-border-width));
 }
@@ -6153,7 +6103,6 @@ textarea.form-control-lg {
   border-bottom: var(--bs-popover-border-width) solid var(--bs-popover-header-bg);
 }
 
-/* rtl:begin:ignore */
 .bs-popover-start > .popover-arrow, .bs-popover-auto[data-popper-placement^=left] > .popover-arrow {
   right: calc(-1 * (var(--bs-popover-arrow-height)) - var(--bs-popover-border-width));
   width: var(--bs-popover-arrow-height);
@@ -6171,7 +6120,6 @@ textarea.form-control-lg {
   border-left-color: var(--bs-popover-bg);
 }
 
-/* rtl:end:ignore */
 .popover-header {
   padding: var(--bs-popover-header-padding-y) var(--bs-popover-header-padding-x);
   margin-bottom: 0;
@@ -8722,13 +8670,11 @@ textarea.form-control-lg {
   white-space: nowrap !important;
 }
 
-/* rtl:begin:remove */
 .text-break {
   word-wrap: break-word !important;
   word-break: break-word !important;
 }
 
-/* rtl:end:remove */
 .text-primary {
   --bs-text-opacity: 1;
   color: rgba(var(--bs-primary-rgb), var(--bs-text-opacity)) !important;
@@ -13333,9 +13279,7 @@ footer .footer_widget ul {
   margin-top: -10px;
   padding: 0;
 }
-/* footer .btn-link, footer a, footer p a, footer p, footer strong, footer b {
-  color: rgba(255, 255, 255, 0.7);
-} */
+
 footer .widget_categories ul li,
 footer .widget_archive ul li,
 footer .widget_meta ul li,
@@ -14054,7 +13998,6 @@ footer .widget_services ul li:hover {
   max-width: 1000px;
 }
 
-/* Background White Transperent */
 .tpbw1 {
   background-color: rgba(255, 255, 255, 0.1);
 }
@@ -14091,7 +14034,6 @@ footer .widget_services ul li:hover {
   background-color: rgba(255, 255, 255, 0.9);
 }
 
-/* Background Black Transperent */
 .bg-tpb1 {
   background-color: rgba(0, 0, 0, 0.05);
 }
@@ -16549,7 +16491,6 @@ footer .widget_services ul li:hover {
   padding-right: 0;
 }
 
-/* Section Space */
 .section-sp1 {
   padding-top: 100px;
   padding-bottom: 70px;
@@ -16741,7 +16682,6 @@ footer .widget_services ul li:hover {
   font-weight: 400;
 }
 
-/* Heading Box */
 .heading-bx.left .title-head {
   margin-bottom: 10px;
   margin-top: 0;
@@ -17804,7 +17744,6 @@ footer .widget_services ul li:hover {
   }
 }
 
-/* Loading */
 #loading-icon-bx {
   width: 100%;
   height: 100%;
@@ -19056,7 +18995,6 @@ cite {
   font-size: 14px;
 }
 
-/* Widget Info */
 .widget_info ul {
   margin: 0;
   padding: 0;
@@ -21308,7 +21246,6 @@ button.back-to-top.active {
   width: 45px;
 }
 
-/* info box show */
 .action-box {
   overflow: hidden;
   position: relative;
@@ -21321,7 +21258,6 @@ button.back-to-top.active {
   margin-bottom: 0;
 }
 
-/* without hover */
 .ov-box.no-hover,
 .ld-info-has.no-hover {
   opacity: 1;
@@ -21695,14 +21631,12 @@ button.back-to-top.active {
   -o-transition: all 0.25s;
 }
 
-/* >image-opacity */
 .media-effect.opacity img:hover {
   opacity: 0.8;
   -moz-opacity: 0.8;
   -webkit-opacity: 0.8;
 }
 
-/* >image-zoom */
 .media-effect.zoom-slow img {
   transition: all 10s;
   -moz-transition: all 10s;

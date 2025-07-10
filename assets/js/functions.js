@@ -21,7 +21,6 @@ const mobileToggler = () =>{
         toggler.addEventListener('click', () => {
             const isActive = toggler.classList.toggle('active');
 
-            // Ensure navList also toggles properly
             if (isActive) {
                 navList.classList.add('show');
             } else {
@@ -32,14 +31,12 @@ const mobileToggler = () =>{
 }
 
 const mobileMenu = () =>{
-	var dropdownNav = document.querySelectorAll('.dropdown-nav > a'); // Select all links inside .dropdown-nav
-	var navBack = document.querySelectorAll('.nav-back'); // Select all nav-back buttons
+	var dropdownNav = document.querySelectorAll('.dropdown-nav > a'); 
+	var navBack = document.querySelectorAll('.nav-back'); 
 
-	// Loop through each dropdown trigger
 	dropdownNav.forEach(element => {
 		element.addEventListener('click', function(event) {
 			event.preventDefault();
-			// Add 'open' class to the parent .dropdown-nav
 			const parentDropdown = element.closest('.dropdown-nav');
 			if (parentDropdown) {
 				parentDropdown.classList.add('open');
@@ -47,11 +44,9 @@ const mobileMenu = () =>{
 		});
 	});
 
-	// Loop through each nav-back button
 	navBack.forEach(backButton => {
 		backButton.addEventListener('click', function(event) {
 			event.preventDefault();
-			// Find the closest .dropdown-nav and remove the 'open' class
 			const parentDropdown = backButton.closest('.dropdown-nav');
 			if (parentDropdown) {
 				parentDropdown.classList.remove('open');
@@ -74,7 +69,6 @@ const scriptFixedHeader = () =>{
 }
 
 function initCustomCursor() {
-    // Cursor element creation and append
     const cursor = document.createElement('div');
     cursor.id = 'cursor';
 
@@ -83,23 +77,19 @@ function initCustomCursor() {
     cursor.appendChild(cursorCircle);
     document.body.appendChild(cursor);
 
-    // Mouse tracking variables
     const mouse = { x: -100, y: -100 };
     const pos = { x: 0, y: 0 };
     const speed = 0.1;
 
-    // Mouse position update
     window.addEventListener('mousemove', e => {
         mouse.x = e.clientX;
         mouse.y = e.clientY;
     });
 
-    // Calculate rotation angle
     function getAngle(diffX, diffY) {
         return Math.atan2(diffY, diffX) * 180 / Math.PI;
     }
 
-    // Calculate squeeze (scale)
     function getSqueeze(diffX, diffY) {
         const distance = Math.sqrt(diffX ** 2 + diffY ** 2);
         const maxSqueeze = 0.15;
@@ -107,7 +97,6 @@ function initCustomCursor() {
         return Math.min(distance / accelerator, maxSqueeze);
     }
 
-    // Update cursor transformation
     function updateCursor() {
         const diffX = Math.round(mouse.x - pos.x);
         const diffY = Math.round(mouse.y - pos.y);
@@ -126,14 +115,14 @@ function initCustomCursor() {
         cursorCircle.style.transform = rotate + ' ' + scale;
     }
 
-    // Animation loop
+
     function loop() {
         updateCursor();
         requestAnimationFrame(loop);
     }
     requestAnimationFrame(loop);
 
-    // Modifier functionality (cursor-class handling)
+
     const cursorModifiers = document.querySelectorAll('[cursor-class]');
     cursorModifiers.forEach(modifier => {
         modifier.addEventListener('mouseenter', function() {
@@ -228,15 +217,15 @@ var isotopeFilters = function () {
 		var $grid = jQuery('.isotopeFilters');
 		var filterValue = "";
 
-		// Remove all and set first tab active
+
 		$filterNav.find('li').removeClass('active');
 		$filterNav.find('li:first').addClass('active');
 
-		// Set up options
+
 		var gutter = parseInt($grid.data('gutter') || 0, 10);
 		var columnWidth = parseInt($grid.attr('data-column-width') || 0, 10);
 
-		// Wait for images to load before initializing Isotope
+
 		$grid.imagesLoaded(function () {
 			$grid.isotope({
 				itemSelector: ".action-card",
@@ -248,7 +237,7 @@ var isotopeFilters = function () {
 			});
 		});
 
-		// Filtering
+
 		if ($filterNav.length) {
 			$filterNav.on("click", "li", function () {
 				$filterNav.find('li').removeClass('active');
@@ -263,7 +252,7 @@ var isotopeFilters = function () {
 	}
 };
 
-// Call this function when page loads
+
 document.addEventListener("DOMContentLoaded", () => {
 	initLenis();
     mobileToggler();
@@ -289,9 +278,9 @@ window.addEventListener('scroll', () => {
 			if(jQuery(selectorName).length > 0){return true;}else{return false;}
 		};		
 		
-		/* Page Scroll To Top ============ */
+	
 		var pageScrollToTop = function (){
-			/* page scroll top on click function */	
+		
 			jQuery("button.back-to-top").on('click',function() { 
 				jQuery('html').animate({ scrollTop: 0 }, 500);
 				return false;
@@ -305,10 +294,10 @@ window.addEventListener('scroll', () => {
 					jQuery("button.back-to-top").removeClass('active');
 				}
 			});
-			/* page scroll top on click function end*/
+		
 		}
 		
-		/* Set Counter Up Function */
+	
 		var setCounterUp = function(){
 			if(!checkSelectorExistence('.counter')){return;}
 			jQuery('.counter').counterUp({
@@ -317,7 +306,7 @@ window.addEventListener('scroll', () => {
 			});	
 		}
 		
-		/* WOW ANIMATION */
+		
 		var wowAnimation = function(){
 			if(!checkSelectorExistence('.wow')){return;}
 			var wow = new WOW({
@@ -381,7 +370,6 @@ window.addEventListener('scroll', () => {
 		}
 		
 		var magnificPopupImageView = function(){
-			/* magnificPopup function */
 			if(checkSelectorExistence('.magnific-image')) {
 				jQuery('.magnific-image').magnificPopup({ 
 					delegate: '.magnific-anchor', 
@@ -391,7 +379,7 @@ window.addEventListener('scroll', () => {
 					gallery: {
 						enabled: true,
 						navigateByImgClick: true,
-						preload: [0,1] // Will preload 0 - before current, and 1 after the current image
+						preload: [0,1] 
 					},
 					image: {
 						tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
@@ -401,9 +389,7 @@ window.addEventListener('scroll', () => {
 					}
 				});
 			}
-			/* magnificPopup function end */
 			
-			/* magnificPopup for video function */
 			if(checkSelectorExistence('.video')) {
 				jQuery('.video').magnificPopup({ 
 					type: 'iframe',
@@ -422,7 +408,7 @@ window.addEventListener('scroll', () => {
 				});
 			}
 			
-			/* magnificPopup for paly video function end*/
+		
 			if(checkSelectorExistence('.magnific-popup')) {
 				$('.magnific-popup').magnificPopup({
 					disableOn: 700,
@@ -448,7 +434,7 @@ window.addEventListener('scroll', () => {
 		};
 
 
-		/* Function ============ */
+	
 		return {
 			initialHelper:function(){
 				initNiceSelect();
@@ -469,10 +455,8 @@ window.addEventListener('scroll', () => {
 		
 	}(jQuery);
 
-	/* jQuery ready  */	
 	jQuery(document).ready(function() {ThemeBuilder.initialHelper();});
 	
-	/* jQuery Window Load */
 	jQuery(window).on("load", function (e) {ThemeBuilder.afterLoadThePage();});
 	
 })(jQuery);

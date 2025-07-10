@@ -1,11 +1,9 @@
 (function() {
     'use strict';
     
-    // Настройки cookies
     const COOKIE_CONSENT_KEY = 'gameon_cookie_consent';
     const COOKIE_EXPIRY_DAYS = 365;
     
-    // Создание HTML баннера
     function createCookieBanner() {
         const banner = document.createElement('div');
         banner.className = 'cookie-banner';
@@ -30,7 +28,6 @@
         return banner;
     }
     
-    // Проверка согласия
     function checkCookieConsent() {
         const consent = localStorage.getItem(COOKIE_CONSENT_KEY);
         const consentData = consent ? JSON.parse(consent) : null;
@@ -39,7 +36,6 @@
             return null;
         }
         
-        // Проверяем срок действия
         const expiryDate = new Date(consentData.expiry);
         const now = new Date();
         
@@ -51,7 +47,6 @@
         return consentData.accepted;
     }
     
-    // Сохранение согласия
     function saveCookieConsent(accepted) {
         const expiryDate = new Date();
         expiryDate.setDate(expiryDate.getDate() + COOKIE_EXPIRY_DAYS);
@@ -65,7 +60,6 @@
         localStorage.setItem(COOKIE_CONSENT_KEY, JSON.stringify(consentData));
     }
     
-    // Показ баннера
     function showCookieBanner() {
         const banner = document.getElementById('cookieBanner') || createCookieBanner();
         setTimeout(() => {
@@ -73,7 +67,6 @@
         }, 1000);
     }
     
-    // Скрытие баннера
     function hideCookieBanner() {
         const banner = document.getElementById('cookieBanner');
         if (banner) {
@@ -84,15 +77,10 @@
         }
     }
     
-    // Принятие cookies
     window.acceptCookies = function() {
         saveCookieConsent(true);
         hideCookieBanner();
-        
-        // Здесь можно добавить код для активации аналитики
-       
-        
-        // Пример активации Google Analytics
+      
         if (typeof gtag !== 'undefined') {
             gtag('consent', 'update', {
                 'analytics_storage': 'granted'
@@ -100,14 +88,12 @@
         }
     };
     
-    // Отклонение cookies
     window.declineCookies = function() {
         saveCookieConsent(false);
         hideCookieBanner();
         
-        console.log('Cookies отклонена');
+       
         
-        // Отключение аналитики
         if (typeof gtag !== 'undefined') {
             gtag('consent', 'update', {
                 'analytics_storage': 'denied'
@@ -115,24 +101,20 @@
         }
     };
     
-    // Инициализация при загрузке страницы
     function initCookieBanner() {
         const consent = checkCookieConsent();
         
         if (consent === null) {
-            // Согласие не задано - показываем баннер
             showCookieBanner();
         } else if (consent === true) {
-            // Согласие дано - активируем аналитику
-            console.log('Cookies уже принята');
+          
             if (typeof gtag !== 'undefined') {
                 gtag('consent', 'update', {
                     'analytics_storage': 'granted'
                 });
             }
         } else {
-            // Согласие отклонено
-            console.log('Cookies отклонена пользователем');
+           
             if (typeof gtag !== 'undefined') {
                 gtag('consent', 'update', {
                     'analytics_storage': 'denied'
@@ -141,7 +123,6 @@
         }
     }
     
-    // Запуск при загрузке DOM
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', initCookieBanner);
     } else {
